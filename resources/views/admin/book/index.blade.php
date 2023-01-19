@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -55,4 +55,41 @@
       </table>
     </div>
   </body>
-</html>
+</html> --}}
+
+@extends('backend.master')
+
+@section('content')
+<div class="card card-body">
+    <a href="{{route('book-create')}}"><button class="btn btn-primary">Create data</button></a>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">Penulis</th>
+        <th scope="col">Tahun terbit</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($books as $key => $item)
+      <tr>
+        <th scope="row">{{$key + 1}}</th>
+        <td>{{$item->name}}</td>
+        <td>{{$item->author}}</td>
+        <td>{{$item->year}}</td>
+        <td>
+            <a class="btn btn-primary" href="{{route("book-edit", $item->id)}}">Edit</a>
+            <form action="{{route("book-delete", $item->id)}}" method="post" style="display:inline" class="form-check-inline">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit" >HAPUS</button>
+            </form>
+        </td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+</div>
+@endsection

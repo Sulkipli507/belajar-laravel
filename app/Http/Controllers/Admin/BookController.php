@@ -19,11 +19,11 @@ class BookController extends Controller
             'author' => 'required',
             'year' => 'required',
         ],[
-            "name"=> "harus  disi"
+            'name' => "harus  disi"
         ]);
 
        Book::create($request->all());
-       //return redirect()->route("book-index");
+       return redirect()->route("book-index");
     }
 
     public function index(){

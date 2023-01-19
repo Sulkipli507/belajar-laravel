@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -65,4 +65,49 @@
     </div>
 
   </body>
-</html>
+</html> --}}
+
+@extends('backend.master')
+
+@section('content')
+<form action="{{route('book-store')}}" method="post">
+    @csrf
+    <div class="mb-3">
+      <label for="name" class="form-label">Nama</label>
+      <input name="name"class="form-control" >
+
+      @error('name')
+      <span class="text-danger">
+        <strong>{{$message}}</strong>
+      </span>
+      @enderror
+
+    </div>
+
+    <div class="mb-3">
+      <label for="year" class="form-label">Penulis</label>
+      <input name="author" class="form-control">
+
+      @error('author')
+      <span class="text-danger">
+        <strong>{{$message}}</strong>
+      </span>
+      @enderror
+
+    </div>
+
+    <div class="mb-3">
+      <label for="year" class="form-label">Tahun</label>
+      <input name="year"class="form-control">
+
+      @error('year')
+      <span class="text-danger">
+        <strong>{{$message}}</strong>
+      </span>
+      @enderror
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+@endsection
