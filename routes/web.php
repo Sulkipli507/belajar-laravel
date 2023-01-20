@@ -21,6 +21,6 @@ Route::get('/', function () {
 Route::get('/create',[BookController::class, 'create'])->name("book-create");
 Route::post('/store',[BookController::class, 'store'])->name("book-store");
 Route::get('/index',[BookController::class, 'index'])->name("book-index");
-Route::get('/edit/{id}',[BookController::class, 'edit'])->name("book-edit");
 Route::delete('/delete/{id}',[BookController::class, 'destroy'])->name("book-delete");
+Route::get('/edit/{id}',[BookController::class, 'edit'])->name("book-edit");
 Route::put('/update/{id}',[BookController::class, 'update'])->name("book-update");
