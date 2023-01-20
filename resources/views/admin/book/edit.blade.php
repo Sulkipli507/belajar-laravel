@@ -46,6 +46,7 @@
 </html> --}}
 
 @extends('backend.master')
+
 @section('content')
 <form action="{{route('book-update', $book->id)}}" method="post">
     @csrf
@@ -64,5 +65,5 @@
       <input name="year"class="form-control" value="{{$book->year}}">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+</form>
 @endsection
