@@ -61,7 +61,9 @@
 
 @section('content')
 <div class="card card-body">
+    @if (Auth::user()->role == "admin")
     <a href="{{route('book-create')}}"><button class="btn btn-primary">Create data</button></a>
+    @endif
     <table class="table">
     <thead>
       <tr>
@@ -69,7 +71,9 @@
         <th scope="col">Nama</th>
         <th scope="col">Penulis</th>
         <th scope="col">Tahun terbit</th>
+        @if (Auth::user()->role == "admin")
         <th scope="col">Action</th>
+        @endif
       </tr>
     </thead>
     <tbody>
@@ -79,6 +83,7 @@
         <td>{{$item->name}}</td>
         <td>{{$item->author}}</td>
         <td>{{$item->year}}</td>
+        @if (Auth::user()->role == "admin")
         <td>
             <a class="btn btn-primary" href="{{route("book-edit", $item->id)}}">Edit</a>
             <form action="{{route("book-delete", $item->id)}}" method="post" style="display:inline" class="form-check-inline">
@@ -87,6 +92,7 @@
                 <button class="btn btn-danger" type="submit" >HAPUS</button>
             </form>
         </td>
+        @endif
       </tr>
       @endforeach
     </tbody>
