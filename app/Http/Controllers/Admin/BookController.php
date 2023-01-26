@@ -18,16 +18,14 @@ class BookController extends Controller
             'name' => 'required',
             'author' => 'required',
             'year' => 'required',
-        ],[
-            "name" => "harus  disi"
         ]);
 
        Book::create($request->all());
-       return redirect()->route("book-index");
+       return redirect()->route("book-index")->with('status', 'Sukses insert data book');
     }
 
     public function index(){
-        $books = Book::all();
+        $books = Book::paginate(2);
         //return response()->json($books);
         return view('admin.book.index', compact("books"));
     }
@@ -35,7 +33,7 @@ class BookController extends Controller
     public function destroy($id){
         $book = Book::where("id", $id)->first();
         $book->delete();
-        return redirect()->route("book-index");
+        return redirect()->route("book-index")->with('status', 'Sukses delete data book');
     }
 
     public function edit($id){
@@ -46,6 +44,6 @@ class BookController extends Controller
     public function update(Request $request, $id){
         $book = Book::where("id", $id)->first();
         $book->update($request->all());
-        return redirect()->route("book-index");
+        return redirect()->route("book-index")->with('status','Sukses edit data book');
     }
 }

@@ -73,7 +73,7 @@
 <form action="{{route('book-store')}}" method="post">
     @csrf
     <div class="mb-3">
-      <label for="name" class="form-label">Nama</label>
+      <label for="name" class="form-label">Nama Buku</label>
       <input name="name"class="form-control" >
 
       @error('name')

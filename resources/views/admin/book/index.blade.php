@@ -68,7 +68,7 @@
     <thead>
       <tr>
         <th scope="col">No</th>
-        <th scope="col">Nama</th>
+        <th scope="col">Nama Buku</th>
         <th scope="col">Penulis</th>
         <th scope="col">Tahun terbit</th>
         @if (Auth::user()->role == "admin")
@@ -98,4 +98,18 @@
     </tbody>
   </table>
 </div>
+
+<div class="mt-2 float-right">
+    {{$books->links()}}
+</div>
+
+@if (session('status'))
+    <script>
+        Swal.fire({
+            icon:'success',
+            title:'Sukses!',
+            text:"{{session('status')}}",
+        });
+    </script>
+@endif
 @endsection

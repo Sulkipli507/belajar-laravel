@@ -52,7 +52,7 @@
     @csrf
     @method("PUT")
     <div class="mb-3">
-      <label for="name" class="form-label">Nama</label>
+      <label for="name" class="form-label">Nama Buku</label>
       <input name="name"class="form-control" value="{{$book->name}}">
       <div id="emailHelp" class="form-text"></div>
     </div>
