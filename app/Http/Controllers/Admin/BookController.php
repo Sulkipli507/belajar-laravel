@@ -24,8 +24,15 @@ class BookController extends Controller
        return redirect()->route("book-index")->with('status', 'Sukses insert data book');
     }
 
-    public function index(){
+    public function index(Request $request){
         $books = Book::paginate(2);
+        $filterKeyword = $request->get('name');
+        if($filterKeyword){
+            $books = Book::where("name", "LIKE",
+           "%$filterKeyword%")->paginate(2);
+        }
+
+
         //return response()->json($books);
         return view('admin.book.index', compact("books"));
     }

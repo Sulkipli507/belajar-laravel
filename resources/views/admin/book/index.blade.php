@@ -61,9 +61,29 @@
 
 @section('content')
 <div class="card card-body">
-    @if (Auth::user()->role == "admin")
-    <a href="{{route('book-create')}}"><button class="btn btn-primary">Create data</button></a>
-    @endif
+
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            @if (Auth::user()->role == "admin")
+            <a href="{{route('book-create')}}"><button class="btn btn-primary">Create data</button></a>
+            @endif
+        </div>
+        <div class="ml-auto mr-3">
+            <form
+                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input value="{{Request::get('name')}}" name="name" type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                        aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <table class="table">
     <thead>
       <tr>
