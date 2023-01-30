@@ -25,11 +25,11 @@ class BookController extends Controller
     }
 
     public function index(Request $request){
-        $books = Book::paginate(2);
+        $books = Book::paginate(5);
         $filterKeyword = $request->get('name');
         if($filterKeyword){
             $books = Book::where("name", "LIKE",
-           "%$filterKeyword%")->paginate(2);
+           "%$filterKeyword%")->paginate(5);
         }
 
 
