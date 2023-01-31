@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string("name");
             $table->string("author");
             $table->integer("year");
+            $table->foreignId("category_id")->constrained("categories")->onUpdate("cascade")->onDelete("cascade");
+            // $table->foreignId("category_id")->constrained("categories")->onUpdate("cascade")->onDelete("resrict");
             $table->timestamps();
         });
     }

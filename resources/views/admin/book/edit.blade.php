@@ -57,6 +57,14 @@
       <div id="emailHelp" class="form-text"></div>
     </div>
     <div class="mb-3">
+        <label for="category_id" class="form-label">Category</label>
+        <select class="form-control" name="category_id" id="">
+            @foreach ($category as $item)
+            <option @if ($book->category_id == $item->id) selected @endif value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div class="mb-3">
       <label for="year" class="form-label">Penulis</label>
       <input name="author" class="form-control" value="{{$book->author}}">
     </div>

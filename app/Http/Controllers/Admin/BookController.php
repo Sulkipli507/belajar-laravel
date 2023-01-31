@@ -4,13 +4,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Cast\Bool_;
 
 class BookController extends Controller
 {
     public function create(){
-        return view('admin.book.create');
+        $category = Category::all();
+        return view('admin.book.create', compact("category"));
     }
 
     public function store(Request $request){
@@ -18,6 +20,7 @@ class BookController extends Controller
             'name' => 'required',
             'author' => 'required',
             'year' => 'required',
+            'category_id' => 'required',
         ]);
 
        Book::create($request->all());
@@ -31,8 +34,6 @@ class BookController extends Controller
             $books = Book::where("name", "LIKE",
            "%$filterKeyword%")->paginate(5);
         }
-
-
         //return response()->json($books);
         return view('admin.book.index', compact("books"));
     }
@@ -44,8 +45,9 @@ class BookController extends Controller
     }
 
     public function edit($id){
+        $category = Category::all();
         $book = Book::where("id", $id)->first();
-        return view("admin.book.edit", compact("book"));
+        return view("admin.book.edit", compact("book","category"));
     }
 
     public function update(Request $request, $id){

@@ -83,9 +83,25 @@
       @enderror
 
     </div>
+    <div class="mb-3">
+        <label for="category_id" class="form-label">Category</label>
+        <select class="form-control" name="category_id" id="">
+            <option label="Pilih Category"></option>
+            @foreach ($category as $item)
+            <option value="{{$item->id}}">{{$item->name}}</option>
+            @endforeach
+        </select>
+
+      @error('category_id')
+      <span class="text-danger">
+        <strong>{{$message}}</strong>
+      </span>
+      @enderror
+
+    </div>
 
     <div class="mb-3">
-      <label for="year" class="form-label">Penulis</label>
+      <label for="author" class="form-label">Penulis</label>
       <input name="author" class="form-control">
 
       @error('author')
