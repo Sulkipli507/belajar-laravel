@@ -28,7 +28,7 @@ class BookController extends Controller
     }
 
     public function index(Request $request){
-        $books = Book::paginate(5);
+        $books = Book::with("category")->paginate(5);
         $filterKeyword = $request->get('name');
         if($filterKeyword){
             $books = Book::where("name", "LIKE",
@@ -55,4 +55,10 @@ class BookController extends Controller
         $book->update($request->all());
         return redirect()->route("book-index")->with('status','Sukses edit data book');
     }
+
+    public function show($id){
+        $book = Book::where("id", $id)->with("category")->first();
+        return view('admin.book.show', compact("book"));
+    }
+
 }

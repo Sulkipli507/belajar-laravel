@@ -33,6 +33,7 @@ Route::middleware('auth','CheckRole:admin')->group(function(){
 Route::middleware('auth','CheckRole:admin,user')->group(function(){
     //route book admin & user
     Route::get('book/index',[BookController::class, 'index'])->name("book-index");
+    Route::get('book/show/{id}',[BookController::class, 'show'])->name("book-show");
     //route dashboard admin & user
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
