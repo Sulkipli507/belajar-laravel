@@ -110,7 +110,7 @@
                 <!-- Nested Row within Card Body -->
                 <div class="row">
                     <div class="col-lg-5 d-none d-lg-block">
-                        <img height="598px" width="500px" style="background-position: center; background-size: cover;" src="{{asset('backend/img/kucing.jpg')}}" alt="">
+                        <img height="598px" width="500px" style="background-position: center; background-size: cover;" src="{{asset('backend/img/register.jpg')}}" alt="">
                     </div>
                     <div class="col-lg-7">
                         <div class="p-5">

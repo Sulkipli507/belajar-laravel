@@ -104,7 +104,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block">
-                                <img height="598px" width="452px" style="background-position: center; background-size: cover;" src="{{asset('backend/img/macan.jpg')}}" alt="">
+                                <img height="598px" width="452px" style="background-position: center; background-size: cover;" src="{{asset('backend/img/login.jpg')}}" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
