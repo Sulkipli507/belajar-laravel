@@ -43,4 +43,18 @@ class BookController extends Controller
         "message" => "succes delete data book",
     ],200);
     }
+
+    public function update(Request $request, $id){
+
+       $book = Book::where("id", $id)->first();
+        $book->update($request->all());
+
+        return response()->json([
+        "succes" => true,
+        "message" => "succes update data book",
+        "data" => $request->all()
+    ],200);
+
+
+    }
 }

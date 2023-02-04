@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('book/index', [BookController::class, 'index']);
 Route::post('book/store',[BookController::class, 'store']);
 Route::delete('book/delete/{id}',[BookController::class, 'destroy']);
+Route::put('book/update/{id}', [BookController::class, 'update']);
