@@ -45,7 +45,6 @@ class BookController extends Controller
     }
 
     public function update(Request $request, $id){
-
        $book = Book::where("id", $id)->first();
         $book->update($request->all());
 
@@ -54,7 +53,15 @@ class BookController extends Controller
         "message" => "succes update data book",
         "data" => $request->all()
     ],200);
+    }
 
+    public function show($id){
+        $book = Book::where("id", $id)->with("category")->first();
 
+        return response()->json([
+            "succes" => true,
+            "message" => "succes get data book",
+            "data" => $book
+        ],200);
     }
 }
