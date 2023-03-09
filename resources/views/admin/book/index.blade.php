@@ -64,8 +64,8 @@
 
     <div class="form-group row">
         <div class="col-sm-6 mb-3 mb-sm-0">
-            @if (Auth::user()->role == "admin")
-            <a href="{{route('book-create')}}"><button class="btn btn-primary">Create data</button></a>
+            @if (Auth::user()->role == "admin") <a href="{{route('book-create')}}"><button class="btn btn-primary">Create data</button></a>
+
             @endif
         </div>
         <div class="ml-auto mr-3">
