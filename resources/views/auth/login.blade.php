@@ -162,7 +162,15 @@
 
     <!-- Bootstrap core JavaScript-->
     @include('backend.partial.js')
-
+    @if (session('statusgagal'))
+    <script>
+        Swal.fire({
+            icon:'error',
+            title:'Oops...',
+            text:"{{session('statusgagal')}}",
+        });
+    </script>   
+@endif
 </body>
 
 </html>

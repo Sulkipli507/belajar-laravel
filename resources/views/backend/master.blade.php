@@ -64,7 +64,6 @@
 
     <!-- Logout Modal-->
     
-
     <!-- Bootstrap core JavaScript-->
     @include('backend.partial.js')
 
