@@ -170,7 +170,7 @@
             text:"{{session('statusgagal')}}",
         });
     </script>   
-@endif
+    @endif
 </body>
 
 </html>
